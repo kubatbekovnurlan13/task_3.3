@@ -28,7 +28,7 @@ public class Timeslot {
     private String durationValue;
 
     @OneToMany(mappedBy = "timeslot")
-    private List<Lesson> cours;
+    private List<Lesson> lessons;
 
     @Transient
     private Duration duration;
@@ -57,12 +57,17 @@ public class Timeslot {
         return Duration.values();
     }
 
+    public String getStringTimeslot() {
+        return getWeekday().toString().toUpperCase() +" - "+ getDurationValue();
+    }
+
     @Override
     public String toString() {
         return "Slot:" +
                 "timeslotId=" + timeslotId +
                 ", day=" + weekday +
                 ", period=" + duration.hours;
+
     }
 
     @PostLoad

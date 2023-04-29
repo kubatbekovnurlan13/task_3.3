@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Students</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Students page!</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Id</th>
+    <th> Name</th>
+    <th> Last name</th>
+    <th> Group name</th>
+    <th> Age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="student:${students}">
+    <td th:text="${student.getStudentId()}"></td>
+    <td th:text="${student.getStudentName()}"></td>
+    <td th:text="${student.getLastName()}"></td>
+    <td th:text="${student.getGroup().getGroupName()}"></td>
+    <td th:text="${student.getAge()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

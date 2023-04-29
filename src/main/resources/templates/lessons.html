@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lessons</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Lessons page!</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th> Lesson id</th>
+        <th> Group name</th>
+        <th> Professor name</th>
+        <th> Room number</th>
+        <th> Subject name</th>
+        <th> Timeslot</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lesson:${lessons}">
+        <td th:text="${lesson.getLessonId()}"></td>
+        <td th:text="${lesson.getGroup().getGroupName()}"></td>
+        <td th:text="${lesson.getProfessor().getProfessorName()}"></td>
+        <td th:text="${lesson.getRoom().getRoomNumber()}"></td>
+        <td th:text="${lesson.getSubject().getSubjectName()}"></td>
+        <td th:text="${lesson.getTimeslot().getStringTimeslot()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

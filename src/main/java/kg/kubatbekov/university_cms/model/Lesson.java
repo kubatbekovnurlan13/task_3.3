@@ -8,14 +8,14 @@ import lombok.Setter;
 //        student group taking a section of a module at a specific time, in a specific room,
 //        with a specific professor.
 @Entity
-@Table(name = "courses")
+@Table(name = "lessons")
 @Getter
 @Setter
 public class Lesson {
     @Id
-    @Column(name = "course_id")
+    @Column(name = "lesson_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int courseId;
+    private int lessonId;
 
     @ManyToOne
     @JoinColumn(name = "group_id", referencedColumnName = "group_id")
@@ -40,20 +40,20 @@ public class Lesson {
     public Lesson() {
     }
 
-    public Lesson(int courseId, Group group, Subject subject) {
-        this.courseId = courseId;
+    public Lesson(int lessonId, Group group, Subject subject) {
+        this.lessonId = lessonId;
         this.group = group;
         this.subject = subject;
     }
 
     public Lesson(
-            int courseId,
+            int lessonId,
             Group group,
             Subject subject,
             Professor professor,
             Timeslot timeslot,
             Room room) {
-        this.courseId = courseId;
+        this.lessonId = lessonId;
         this.group = group;
         this.subject = subject;
         this.professor = professor;

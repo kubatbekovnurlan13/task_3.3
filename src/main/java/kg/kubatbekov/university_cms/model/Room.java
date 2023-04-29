@@ -23,7 +23,7 @@ public class Room {
     private int capacity;
 
     @OneToMany(mappedBy = "room")
-    private List<Lesson> cours;
+    private List<Lesson> lessons;
 
     public Room() {
     }

@@ -141,7 +141,7 @@ public class Timetable {
         for (Lesson otherLesson : this.cours) {
             if (underTestLesson.getRoom().getRoomId() == otherLesson.getRoom().getRoomId()
                     && underTestLesson.getTimeslot().getTimeslotId() == otherLesson.getTimeslot().getTimeslotId()
-                    && underTestLesson.getCourseId() != otherLesson.getCourseId()) {
+                    && underTestLesson.getLessonId() != otherLesson.getLessonId()) {
                 clashes++;
                 break;
             }
@@ -154,7 +154,7 @@ public class Timetable {
         for (Lesson otherLesson : this.cours) {
             if (underTestLesson.getProfessor().getProfessorId() == otherLesson.getProfessor().getProfessorId()
                     && underTestLesson.getTimeslot().getTimeslotId() == otherLesson.getTimeslot().getTimeslotId()
-                    && underTestLesson.getCourseId() != otherLesson.getCourseId()) {
+                    && underTestLesson.getLessonId() != otherLesson.getLessonId()) {
                 clashes++;
                 break;
             }

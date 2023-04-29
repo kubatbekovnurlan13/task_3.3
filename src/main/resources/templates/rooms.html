@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Rooms</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Rooms page!</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Id</th>
+    <th> Number</th>
+    <th> Capacity</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="room:${rooms}">
+    <td th:text="${room.getRoomId()}"></td>
+    <td th:text="${room.getRoomNumber()}"></td>
+    <td th:text="${room.getCapacity()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

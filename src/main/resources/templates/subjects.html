@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Subjects</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Subjects page!</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Id</th>
+    <th> Name</th>
+    <th> Subject code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="subject:${subjects}">
+    <td th:text="${subject.getSubjectId()}"></td>
+    <td th:text="${subject.getSubjectName()}"></td>
+    <td th:text="${subject.getSubjectCode()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

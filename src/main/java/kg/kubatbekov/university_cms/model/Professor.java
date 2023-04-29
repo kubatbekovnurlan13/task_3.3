@@ -23,7 +23,7 @@ public class Professor {
     private List<Subject> subjects;
 
     @OneToMany(mappedBy = "professor")
-    private List<Lesson> cours;
+    private List<Lesson> lessons;
 
     public Professor() {
     }
@@ -31,5 +31,14 @@ public class Professor {
     public Professor(int professorId, String professorName) {
         this.professorId = professorId;
         this.professorName = professorName;
+    }
+
+    public String getSubjectsAsString() {
+        StringBuilder subjectsAsString = new StringBuilder(" ");
+
+        for (Subject subject : subjects) {
+            subjectsAsString.append(subject.getSubjectName()).append(", ");
+        }
+        return subjectsAsString.toString();
     }
 }

@@ -6,7 +6,6 @@ import kg.kubatbekov.university_cms.model.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Class Solution is one possible solution to the problem.
  */

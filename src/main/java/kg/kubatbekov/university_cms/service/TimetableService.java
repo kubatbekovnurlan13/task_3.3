@@ -89,7 +89,7 @@ public class TimetableService {
         return timetable.getCourses();
     }
 
-    private Timetable initializeTimetable() {
+    public Timetable initializeTimetable() {
         Timetable timetable = new Timetable();
 
         List<Room> rooms = roomService.findAll();

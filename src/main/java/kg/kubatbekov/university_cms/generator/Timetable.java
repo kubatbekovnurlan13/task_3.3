@@ -5,7 +5,6 @@ import kg.kubatbekov.university_cms.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * A timetable represents a potential solution in human-readable form, unlike a
  * Solution or a (chromosome). This timetable class, then, can read a Solution class
@@ -21,7 +20,7 @@ public class Timetable {
     private final List<Group> groups;
     private final List<Timeslot> timeslots;
 
-    private List<Lesson> cours;
+    private List<Lesson> lessons;
 
     public Timetable() {
         this.rooms = new ArrayList<>();
@@ -38,7 +37,6 @@ public class Timetable {
         this.groups = cloneable.getGroups();
         this.timeslots = cloneable.getTimeslots();
     }
-
 
     /**
      * The createClasses method accepts a Solution (really, a chromosome, or course-bones),
@@ -76,7 +74,7 @@ public class Timetable {
                 courseIndex++;
             }
         }
-        this.cours = classes;
+        this.lessons = classes;
     }
 
     private void addTimeslotToCourse(
@@ -114,7 +112,7 @@ public class Timetable {
      */
     public int calculateClashes() {
         int clashes = 0;
-        for (Lesson underTestLesson : this.cours) {
+        for (Lesson underTestLesson : this.lessons) {
 
             clashes = checkRoomCapacity(underTestLesson, clashes);
 
@@ -138,7 +136,7 @@ public class Timetable {
 
     private int isRoomTaken(Lesson underTestLesson, int clashes) {
         // Check if room is taken
-        for (Lesson otherLesson : this.cours) {
+        for (Lesson otherLesson : this.lessons) {
             if (underTestLesson.getRoom().getRoomId() == otherLesson.getRoom().getRoomId()
                     && underTestLesson.getTimeslot().getTimeslotId() == otherLesson.getTimeslot().getTimeslotId()
                     && underTestLesson.getLessonId() != otherLesson.getLessonId()) {
@@ -151,7 +149,7 @@ public class Timetable {
 
     private int isProfessorAvailable(Lesson underTestLesson, int clashes) {
         // Check if professor is available
-        for (Lesson otherLesson : this.cours) {
+        for (Lesson otherLesson : this.lessons) {
             if (underTestLesson.getProfessor().getProfessorId() == otherLesson.getProfessor().getProfessorId()
                     && underTestLesson.getTimeslot().getTimeslotId() == otherLesson.getTimeslot().getTimeslotId()
                     && underTestLesson.getLessonId() != otherLesson.getLessonId()) {
@@ -205,7 +203,7 @@ public class Timetable {
     }
 
     public List<Lesson> getCourses() {
-        return this.cours;
+        return this.lessons;
     }
 
     public List<Group> getGroups() {

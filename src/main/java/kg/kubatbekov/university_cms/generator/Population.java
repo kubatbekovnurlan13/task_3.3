@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 /**
  * Class Population is many solutions,
  *      it helps to get best solution by making some operation

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groups</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Groups page!</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Group id</th>
+            <th>Group grade</th>
+            <th>Group name</th>
+            <th>Group size</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="group:${groups}">
+            <td th:text="${group.getGroupId()}"></td>
+            <td th:text="${group.getGrade()}"></td>
+            <td th:text="${group.getGroupName()}"></td>
+            <td th:text="${group.getGroupSize()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

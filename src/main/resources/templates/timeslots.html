@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Timeslots</title>
+  <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<h1>Hello Welcome to Timeslots page!</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Id</th>
+    <th> Weekday</th>
+    <th> Duration value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="timeslot:${timeslots}">
+    <td th:text="${timeslot.getTimeslotId()}"></td>
+    <td th:text="${timeslot.getWeekday()}"></td>
+    <td th:text="${timeslot.getDurationValue()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

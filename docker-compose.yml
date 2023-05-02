@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres
+    container_name: spring_postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: university_cms
+    ports:
+      - "5435:5435"
+    restart: unless-stopped

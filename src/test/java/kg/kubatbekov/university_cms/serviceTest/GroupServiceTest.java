@@ -2,17 +2,14 @@ package kg.kubatbekov.university_cms.serviceTest;
 
 import kg.kubatbekov.university_cms.container.PostgresContainer;
 import kg.kubatbekov.university_cms.service.GroupService;
-import kg.kubatbekov.university_cms.ConsoleApp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest
 public class GroupServiceTest extends PostgresContainer {
-    @MockBean
-    private ConsoleApp consoleApp;
+
     @Autowired
     private GroupService groupService;
 

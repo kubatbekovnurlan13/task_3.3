@@ -19,7 +19,7 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String getMainPage() {
+    public String getIndex() {
         createTimetable();
         return "main";
     }

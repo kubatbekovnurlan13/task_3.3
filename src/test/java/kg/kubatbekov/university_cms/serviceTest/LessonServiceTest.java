@@ -3,44 +3,40 @@ package kg.kubatbekov.university_cms.serviceTest;
 import kg.kubatbekov.university_cms.container.PostgresContainer;
 import kg.kubatbekov.university_cms.service.LessonService;
 import kg.kubatbekov.university_cms.model.*;
-import kg.kubatbekov.university_cms.ConsoleApp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
 class LessonServiceTest extends PostgresContainer {
-    @MockBean
-    private ConsoleApp consoleApp;
 
     @Autowired
     private LessonService lessonService;
 
     @Test
     void findAll_testFindAll_whenThereNoValueInput() {
-        List<Lesson> cours = lessonService.findAll();
-        int actual = cours.size();
+        List<Lesson> lessons = lessonService.findAll();
+        int actual = lessons.size();
         Assertions.assertEquals(0, actual);
     }
 
     @Test
     void findByGroupId_testFindByGroupId_whenThereNoValueInput() {
-        List<Lesson> cours = lessonService.findByGroupId(1);
-        int actual = cours.size();
+        List<Lesson> lessons = lessonService.findByGroupId(1);
+        int actual = lessons.size();
         Assertions.assertEquals(0, actual);
     }
 
     @Test
     void findByProfessorId_testFindByProfessorId_whenThereNoValueInput() {
-        List<Lesson> cours = lessonService.findByProfessorId(1);
-        int actual = cours.size();
+        List<Lesson> lessons = lessonService.findByProfessorId(1);
+        int actual = lessons.size();
         Assertions.assertEquals(0, actual);
     }
 
@@ -55,29 +51,29 @@ class LessonServiceTest extends PostgresContainer {
             Group group = new Group(1, "group name ", 1);
 
             Lesson lesson = new Lesson(1, group, subject, professor, timeslot, room);
-            List<Lesson> newCours = new ArrayList<>();
-            newCours.add(lesson);
-            lessonService.saveAll(newCours);
+            List<Lesson> newLessons = new ArrayList<>();
+            newLessons.add(lesson);
+            lessonService.saveAll(newLessons);
         }
 
         @Test
         void findAll_testFindAll_whenThereIsValueInput() {
-            List<Lesson> cours = lessonService.findAll();
-            int actual = cours.size();
+            List<Lesson> lessons = lessonService.findAll();
+            int actual = lessons.size();
             Assertions.assertEquals(1, actual);
         }
 
         @Test
         void findByGroupId_testFindByGroupId_whenThereIsValueInput() {
-            List<Lesson> cours = lessonService.findByGroupId(1);
-            int actual = cours.size();
+            List<Lesson> lessons = lessonService.findByGroupId(1);
+            int actual = lessons.size();
             Assertions.assertEquals(1, actual);
         }
 
         @Test
         void findByProfessorId_testFindByProfessorId_whenThereIsValueInput() {
-            List<Lesson> cours = lessonService.findByProfessorId(1);
-            int actual = cours.size();
+            List<Lesson> lessons = lessonService.findByProfessorId(1);
+            int actual = lessons.size();
             Assertions.assertEquals(1, actual);
         }
     }
